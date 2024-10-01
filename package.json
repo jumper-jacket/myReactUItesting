@@ -1,25 +1,29 @@
 {
-  "name": "setup",
+  "name": "rsbuild-react-ts",
+  "private": true,
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --out-dir lib",
-    "server": "npx http-server -c-1"
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --open",
+    "lint": "eslint .",
+    "preview": "rsbuild preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.25.6",
-    "@babel/core": "^7.25.2",
-    "@babel/plugin-transform-react-jsx": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "@babel/preset-react": "^7.24.7"
+    "@eslint/compat": "^1.1.1",
+    "@eslint/js": "^9.10.0",
+    "@rsbuild/core": "^1.0.1",
+    "@rsbuild/plugin-react": "^1.0.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^9.10.0",
+    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.2",
+    "typescript-eslint": "^8.5.0"
   }
 }
