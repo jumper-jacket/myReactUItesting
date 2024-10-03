@@ -1,14 +1,10 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react'; 
+import React from 'react';
 import FizzBuzz from '../src/components/FizzBuzz';
 
 describe("Fizz Buzzのテストを書く", () => {
-    it.todo("入力エリアに3の倍数を入力したら Fizzを表示");
-    it.todo("入力エリアに5の倍数を入力したら Buzzを表示");
-    it.todo("入力エリアに15の倍数を入力したら Fizz Buzzを表示");
-    it.todo("それ以外の数はそのまま表示");
 
     it("入力エリアに 1 を入力したら出力エリアに 1 を出力する", () => {
         const { getByTestId } = render(<FizzBuzz />);
@@ -24,5 +20,48 @@ describe("Fizz Buzzのテストを書く", () => {
         fireEvent.change(inputElement, { target: {value: "2"}})
         expect(outputElement.textContent).toBe("2");
     });
+    it("入力エリアに 3 を入力したら出力エリアに Fizz を出力する", () => {
+        const { getByTestId } = render(<FizzBuzz />);
+        const inputElement = screen.getByRole("spinbutton");
+        const outputElement = screen.getByTestId("output");
+        fireEvent.change(inputElement, { target: {value: "3"}})
+        expect(outputElement.textContent).toBe("Fizz");
+    });
+    it("入力エリアに 4 を入力したら出力エリアに 4 を出力する", () => {
+        const { getByTestId } = render(<FizzBuzz />);
+        const inputElement = screen.getByRole("spinbutton");
+        const outputElement = screen.getByTestId("output");
+        fireEvent.change(inputElement, { target: {value: "4"}})
+        expect(outputElement.textContent).toBe("4");
+    });
+    it("入力エリアに 5 を入力したら出力エリアに Buzz を出力する", () => {
+        const { getByTestId } = render(<FizzBuzz />);
+        const inputElement = screen.getByRole("spinbutton");
+        const outputElement = screen.getByTestId("output");
+        fireEvent.change(inputElement, { target: {value: "5"}})
+        expect(outputElement.textContent).toBe("Buzz");
+    });
+    it("入力エリアに 6 を入力したら出力エリアに Fizz を出力する", () => {
+        const { getByTestId } = render(<FizzBuzz />);
+        const inputElement = screen.getByRole("spinbutton");
+        const outputElement = screen.getByTestId("output");
+        fireEvent.change(inputElement, { target: {value: "6"}})
+        expect(outputElement.textContent).toBe("Fizz");
+    });
+    it("入力エリアに 15 を入力したら出力エリアに FizzBuzz と出力する", () => {
+        const { getByTestId } = render(<FizzBuzz />);
+        const inputElement = screen.getByRole("spinbutton");
+        const outputElement = screen.getByTestId("output");
+        fireEvent.change(inputElement, { target: {value: "15"}})
+        expect(outputElement.textContent).toBe("FizzBuzz");
+    });
+    it("入力エリアに 30 を入力したら出力エリアに FizzBuzz と出力する", () => {
+        const { getByTestId } = render(<FizzBuzz />);
+        const inputElement = screen.getByRole("spinbutton");
+        const outputElement = screen.getByTestId("output");
+        fireEvent.change(inputElement, { target: {value: "30"}})
+        expect(outputElement.textContent).toBe("FizzBuzz");
+    });
 
-})
+
+});
